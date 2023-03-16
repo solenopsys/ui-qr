@@ -12,9 +12,10 @@ import {QrcodeComponent} from "./qrcode/qrcode.component";
   imports: [
   ],
   exports: [
+    QrcodeComponent
   ]
 })
-export class UINavigateModule {
+export class UIQrModule {
   constructor(private ds: DeclaredService) {
     ds.addComps("@solenopsys/ui-qr", [
       QrcodeComponent
