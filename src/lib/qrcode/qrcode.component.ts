@@ -9,12 +9,20 @@ import * as qrcode from 'qrcode';
 export class QrcodeComponent {
   @ViewChild('qrCodeCanvas', { static: true }) qrCodeCanvas: ElementRef;
 
+  @Input()
+  size = 200;
+
   @Input('data')
   set setData(data: string) {
 
 
     // Generate the QR code as a data URI
-    qrcode.toDataURL(data)
+    qrcode.toDataURL(data,{
+        width: this.size,
+        height: this.size,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+    })
         .then(url => {
           // Render the QR code on the canvas
           const canvas = this.qrCodeCanvas.nativeElement;
