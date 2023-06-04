@@ -7,7 +7,7 @@ import * as qrcode from 'qrcode';
   styleUrls: ['./qrcode.component.scss']
 })
 export class QrcodeComponent {
-  @ViewChild('qrCodeCanvas', { static: true }) qrCodeCanvas: ElementRef;
+  @ViewChild('qrCodeCanvas', { static: true }) qrCodeCanvas!: ElementRef;
 
   @Input()
   size = 200;
@@ -16,12 +16,13 @@ export class QrcodeComponent {
   set setData(data: string) {
 
 
+
+
     // Generate the QR code as a data URI
     qrcode.toDataURL(data,{
         width: this.size,
-        height: this.size,
-        colorDark : "#000000",
-        colorLight : "#ffffff",
+        color:{dark: "#000000",light:"#ffffff"},
+        margin:5
     })
         .then(url => {
           // Render the QR code on the canvas
