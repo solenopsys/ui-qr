@@ -7,6 +7,6 @@
     "@types/qrcode": "^1.5.0"
   },
   "scripts": {
-    "build": "ng-packagr -p ng-package.json -c ../../../../tsconfig.base.json"
+    "build": "ng-packagr -p ng-package.json -c ../../../../tsconfig.packages.json"
   }
 }
